@@ -1,0 +1,29 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Compile and Run Tests",
+            "type": "cppdbg",
+			"request": "launch",
+			"preLaunchTask": "build tests",
+            "cwd": "${workspaceFolder}",
+			"program": "${workspaceFolder}/tests/public_tests",
+			"MIMode": "gdb",
+			"externalConsole": false,
+			"windows": {
+				"program": "${workspaceFolder}\\tests\\public_tests.exe"
+			}
+		},
+		{
+			"name": "Compile Parrot Only",
+			"type": "cppdbg",
+			"request": "launch",
+			"preLaunchTask": "build parrot",
+			"cwd": "${workspaceFolder}",
+			"program": "${workspaceFolder}/parrot",
+			"windows": {
+				"program": "${workspaceFolder}\\parrot.exe"
+			}
+		}
+	]
+}

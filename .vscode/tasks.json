@@ -1,0 +1,94 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "build parrot",
+			"type": "shell",
+			"command": "gcc",
+			"args": [
+				"-Ofast",
+				"-I.",
+				"dynamics.c",
+				"parrot.c",
+				"runq.c",
+				"sampler.c",
+				"tokenizer.c",
+				"transformer.c",
+				"utils.c",
+				"-lm",
+				"-o",
+				"parrot"
+			],
+			"windows": {
+				"args": [
+					"-Ofast",
+					"-D_WIN32",
+					"-I.",
+					"dynamics.c",
+					"parrot.c",
+					"runq.c",
+					"sampler.c",
+					"tokenizer.c",
+					"transformer.c",
+					"utils.c",
+					"win.c",
+					"-lm",
+					"-o",
+					"parrot.exe"
+				]
+			},
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"detail": "Compile parrot using gcc on Windows, Linux, and macOS"
+		},
+		{
+			"label": "build tests",
+			"type": "shell",
+			"command": "gcc",
+			"args": [
+				"-O0",
+				"-g",
+				"-I.",
+				"dynamics.c",
+				"runq.c",
+				"sampler.c",
+				"tokenizer.c",
+				"transformer.c",
+				"utils.c",
+				"tests/public_tests.c",
+				"-lm",
+				"-o",
+				"tests/public_tests"
+			],
+			"windows": {
+				"args": [
+					"-O0",
+					"-g",
+					"-D_WIN32",
+					"-I.",
+					"dynamics.c",
+					"runq.c",
+					"sampler.c",
+					"tokenizer.c",
+					"transformer.c",
+					"utils.c",
+					"win.c",
+					"tests/public_tests.c",
+					"-lm",
+					"-o",
+					"tests/public_tests.exe"
+				]
+			},
+			"group": "build",
+			"problemMatcher": [
+				"$gcc"
+			],
+			"detail": "Compile public_tests using gcc on Windows, Linux, and macOS"
+		}
+	]
+}
